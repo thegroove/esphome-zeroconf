@@ -30,8 +30,9 @@ def to_code(config):
 
     cg.add(var.set_service(config[CONF_SERVICE], config[CONF_PROTOCOL], config[CONF_PORT]))
 
-    for txt in config[CONF_TXT]:
-        cg.add(var.add_txt(txt[CONF_KEY], txt[CONF_VALUE]))    
+    if CONF_TXT in config:
+        for txt in config[CONF_TXT]:
+            cg.add(var.add_txt(txt[CONF_KEY], txt[CONF_VALUE]))    
 
 
 

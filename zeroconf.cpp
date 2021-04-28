@@ -23,6 +23,10 @@ void Zeroconf::dump_config(){
 
 std::string Zeroconf::txts_to_string(){
 
+    if(this->txts_.size() ==0){
+        return "";
+    }
+
     std::string txtstr;
 
     for(Txt txt : this->txts_){
