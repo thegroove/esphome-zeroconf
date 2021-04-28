@@ -15,12 +15,8 @@ CONFIG_SCHEMA = cv.Schema({
     cv.Required(CONF_SERVICE): cv.string,
     cv.Required(CONF_PROTOCOL): cv.string,
     cv.Required(CONF_PORT): cv.port,
-
-    cv.Optional(CONF_TXT): cv.ensure_list(
-        cv.Schema({
-            cv.Required(CONF_KEY): cv.string,
-            cv.Required(CONF_VALUE): cv.string, 
-        })
+    cv.Optional(CONF_TXT): cv.All(
+        cv.Schema({cv.string: cv.string})
     ),
 }).extend(cv.COMPONENT_SCHEMA)
 
@@ -29,10 +25,9 @@ def to_code(config):
     yield cg.register_component(var, config)
 
     cg.add(var.set_service(config[CONF_SERVICE], config[CONF_PROTOCOL], config[CONF_PORT]))
-
-    if CONF_TXT in config:
-        for txt in config[CONF_TXT]:
-            cg.add(var.add_txt(txt[CONF_KEY], txt[CONF_VALUE]))    
+    
+    for key in config.get(CONF_TXT, []):
+        cg.add(var.add_txt(key, config[CONF_TXT][key]))
 
 
 
