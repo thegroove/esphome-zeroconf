@@ -30,10 +30,8 @@ zeroconf:
     protocol: tcp
     port: 8080
     txt:
-      - key: version
-        value: 1.0
-      - key: location
-        value: basement
+      version: 1.0
+      location: basement
  ```
  
  
