@@ -1,7 +1,7 @@
 # Zeroconf custom component for ESPHome
 
 
-Example configuration:
+Example configuration without DNS TXT records:
 
 ```yaml
 zeroconf:
@@ -22,7 +22,7 @@ zeroconf:
 ```
 
 
-Adding some txt records for esphome-zbbridge gateway application version, location, and Zigbee radio configuration to be based along to ZHA integration:
+Now an example with also adding some DNS TXT records as parameters for esphome-zbbridge gateway application version, location, and Zigbee radio configuration to be based along to ZHA integration:
 
 ```yaml
 zeroconf:
