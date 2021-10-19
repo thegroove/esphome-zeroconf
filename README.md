@@ -5,7 +5,7 @@ Example configuration:
 
 ```yaml
 zeroconf:
-  - service: esphome_zb_gw
+  - service: esphome_zb_gw_efr32
     protocol: tcp
     port: 6638
  ```
@@ -15,7 +15,7 @@ zeroconf:
  
  ```
  _myservice._tcp      local
-   hostname = [esphome_zb_gw.local]
+   hostname = [esphome_zb_gw_efr32.local]
    address = [172.16.0.174]
    port = [6638]
    txt = []
@@ -26,7 +26,7 @@ Adding some txt records for esphome-zbbridge gateway application version, locati
 
 ```yaml
 zeroconf:
-  - service: esphome_zb_gw
+  - service: esphome_zb_gw_efr32
     protocol: tcp
     port: 6638
     txt:
@@ -41,8 +41,8 @@ zeroconf:
  Result:
  
  ```
- _myservice._tcp      local
-   hostname = [esphome_zb_gw.local]
+ _esphome_zb_gw_efr32._tcp      local
+   hostname = [esphome_zb_gw_efr32.local]
    address = [172.16.0.174]
    port = [6638]
    txt = ["version=1.0" "location=basement" "radio_type=znp" "baud_rate=115200" "data_flow_control=software"]
