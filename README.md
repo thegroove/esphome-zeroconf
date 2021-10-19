@@ -5,9 +5,9 @@ Example configuration:
 
 ```yaml
 zeroconf:
-  - service: myservice
+  - service: esphome_zb_gw
     protocol: tcp
-    port: 8080
+    port: 6638
  ```
  
  
@@ -15,23 +15,26 @@ zeroconf:
  
  ```
  _myservice._tcp      local
-   hostname = [my_esphome_node.local]
+   hostname = [esphome_zb_gw.local]
    address = [172.16.0.174]
-   port = [8080]
+   port = [6638]
    txt = []
 ```
 
 
-Adding some txt records:
+Adding some txt records for esphome-zbbridge gateway application version, location, and Zigbee radio configuration to be based along to ZHA integration:
 
 ```yaml
 zeroconf:
-  - service: myservice
+  - service: esphome_zb_gw
     protocol: tcp
-    port: 8080
+    port: 6638
     txt:
       version: 1.0
       location: basement
+      radio_type: znp
+      baud_rate: 115200
+      data_flow_control: software
  ```
  
  
@@ -39,10 +42,10 @@ zeroconf:
  
  ```
  _myservice._tcp      local
-   hostname = [my_esphome_node.local]
+   hostname = [esphome_zb_gw.local]
    address = [172.16.0.174]
-   port = [8080]
-   txt = ["version=1.0" "location=basement"]
+   port = [6638]
+   txt = ["version=1.0" "location=basement" "radio_type=znp" "baud_rate=115200" "data_flow_control=software"]
 ```
 
 (Test results obtained with `avahi-browse -a -r`)
