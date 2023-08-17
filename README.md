@@ -4,6 +4,9 @@
 Example configuration:
 
 ```yaml
+external_components:
+  - source: github://thegroove/esphome-zeroconf@main
+
 zeroconf:
   - service: myservice
     protocol: tcp
@@ -25,6 +28,9 @@ zeroconf:
 Adding some txt records:
 
 ```yaml
+external_components:
+  - source: github://thegroove/esphome-zeroconf@main
+
 zeroconf:
   - service: myservice
     protocol: tcp
